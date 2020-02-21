@@ -1,7 +1,10 @@
 body {
     background-color: black;
 }
-h1 {
-    font-size: 78px;
-    color: red;
+img {
+    height: 10em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
 }
