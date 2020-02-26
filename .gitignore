@@ -63,3 +63,5 @@ typings/
 .next
 
 *.lock
+
+package-lock.json
