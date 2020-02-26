@@ -1,55 +1,77 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require("path");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
-    entry: "./src/scripts/@boom.js",
+    entry: {
+        app:"./src/app.js"
+    },
     output: {
-        path: path.join(__dirname, "/public"),
-        filename: "@nya.js"
+        path: path.resolve(__dirname, "../dist"),
+        publicPath:'/dist',
+        filename: "[name].js"
     },
     module: {
-        rules: [
-            {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                use: ["babel-loader"]
-            },
-            {
-                test: /\.(png|jpe?g|gif)$/i,
-                use: [
-                    {
-                        loader: 'file-loader',
-                    },
-                ],
-            },
-            {
-                test: /\.css$/,
-                use: [
-                    {
-                        loader: MiniCssExtractPlugin.loader,
-                        options: {
-                            // you can specify a publicPath here
-                            // by default it uses publicPath in webpackOptions.output
-                            publicPath: '.',
-                            hmr: process.env.NODE_ENV === 'development',
-                        },
-                    },
-                    'css-loader',
-                ],
-            },
-        ]
+        rules:[
+        {
+            test: /\.pug$/,
+            use: ['pug-loader']
+        },
+        {
+            test:/\.js$/,
+            loader:'babel-loader',
+            exclude:'/node_modules/'
+        },
+        {
+            test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]'
+            }
+        },
+        {
+            test: /\.(png|jpg|gif|svg)$/,
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]'
+            }
+        },
+        {
+            test: /\.scss$/,
+            use: [
+              'style-loader',
+              MiniCssExtractPlugin.loader,
+              {
+                loader: 'css-loader'
+              },
+              {
+                loader: 'sass-loader'
+              }
+            ]
+        }, 
+        {
+            test: /\.css$/,
+            use: [
+              'style-loader',
+              MiniCssExtractPlugin.loader,
+              {
+                loader: 'css-loader'
+              }
+            ]
+        }]
+    },
+    devServer:{
+        overlay: true
     },
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: '@nya.css',
-            ignoreOrder: false, // Enable to remove warnings about conflicting order
-        }),
         new HtmlWebpackPlugin({
-            template: './index.html',
+            template: "./src/pug/index.pug"            
+        }),
+        new MiniCssExtractPlugin({
+            filename:"[name].css"
         }),
         new CopyWebpackPlugin([
             { from: 'src/img' }
         ])
-    ],
+    ]
 };
