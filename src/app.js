@@ -1,3 +1,3 @@
-import './pug/script.pug';
-import './scss/footer.scss';
+import './pug/main.pug';
+import './scss/main.scss';
 import * as $ from 'jquery';
