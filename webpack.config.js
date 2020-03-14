@@ -74,7 +74,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: `${PAGES_DIR}/index.pug`,
             filename: './index.html',
-            inject: true
+            inject: false
         }),
         new CopyWebpackPlugin([
             { from: 'src/img' }
