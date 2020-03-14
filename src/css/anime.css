@@ -10,5 +10,8 @@ img {
 }
 a {
 	text-decoration: none;
-    color: fuchsia;
+    color: darkorange;
+}
+p {
+    color: fuchsia; 
 }
