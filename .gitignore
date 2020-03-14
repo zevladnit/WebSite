@@ -65,3 +65,5 @@ typings/
 *.lock
 
 package-lock.json
+
+.vscode/tasks.json

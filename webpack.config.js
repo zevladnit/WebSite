@@ -1,17 +1,27 @@
 const path = require("path");
+const PATHS = {
+    src: path.join(__dirname, '/src'),
+    dist: path.join(__dirname, '/public'),
+    assets: 'assets/'
+};
+const PAGES_DIR = `${PATHS.src}/pug`;
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: {
-        app:"./src/main.js"
+        app:`${PATHS.src}/main.js`
     },
     output: {
-        path: path.join(__dirname, "/public"),
+        path: PATHS.dist,
         filename: "[name].js"
     },
     module: {
         rules:[
+        {
+            test: /\.pug$/,
+            use: ['pug-loader']
+        },
         {
             test:/\.js$/,
             loader:'babel-loader',
@@ -57,7 +67,12 @@ module.exports = {
             filename:"[name].css"
         }),        
         new HtmlWebpackPlugin({
-            template: './index.html',
+            template: './index.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: `${PAGES_DIR}/fire_footer.pug`,
+            filename: './fire_footer.html',
+            inject: true
         }),
         new CopyWebpackPlugin([
             { from: 'src/img' }
