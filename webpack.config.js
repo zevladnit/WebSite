@@ -7,7 +7,8 @@ module.exports = {
         app:"./src/main.js"
     },
     output: {
-        path: path.resolve(__dirname,'/public'),
+        path: path.join(__dirname, "/public"),
+        publicPath: 'public',
         filename: "[name].js"
     },
     module: {
@@ -61,6 +62,9 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
             filename:"[name].css"
+        }),        
+        new HtmlWebpackPlugin({
+            template: './index.html',
         }),
         new CopyWebpackPlugin([
             { from: 'src/img' }
