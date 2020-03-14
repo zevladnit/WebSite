@@ -4,19 +4,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
     entry: {
-        app:"./src/app.js"
+        app:"./src/main.js"
     },
     output: {
-        path: path.resolve(__dirname, '../public'),
-        publicPath:'/public',
+        path: path.resolve(__dirname,'/public'),
+        publicPath:'public',
         filename: "[name].js"
     },
     module: {
         rules:[
-        {
-            test: /\.pug$/,
-            use: ['pug-loader']
-        },
         {
             test:/\.js$/,
             loader:'babel-loader',
@@ -64,9 +60,6 @@ module.exports = {
         overlay: true
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            template: "./src/pug/index.pug"            
-        }),
         new MiniCssExtractPlugin({
             filename:"[name].css"
         }),
