@@ -65,13 +65,15 @@ module.exports = {
     plugins: [
         new MiniCssExtractPlugin({
             filename:"[name].css"
-        }),        
-        new HtmlWebpackPlugin({
-            template: './index.html'
         }),
         new HtmlWebpackPlugin({
-            template: `${PAGES_DIR}/fire_footer.pug`,
-            filename: './fire_footer.html',
+            template: `${PAGES_DIR}/footer.pug`,
+            filename: './footer.html',
+            inject: true
+        }),        
+        new HtmlWebpackPlugin({
+            template: `${PAGES_DIR}/index.pug`,
+            filename: './index.html',
             inject: true
         }),
         new CopyWebpackPlugin([
