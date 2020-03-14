@@ -24,7 +24,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "scripts": {
-    "build": "webpack",
+    "build": "webpack --output public",
     "dev": "webpack-dev-server --open"
   }
 }
