@@ -60,7 +60,9 @@ module.exports = {
         }]
     },
     devServer:{
-        overlay: true
+        overlay: true,
+        port:7123,
+        contentBase: PATHS.dist
     },
     plugins: [
         new MiniCssExtractPlugin({
