@@ -1,3 +1,4 @@
+$main-color: #ececec;
 
 .img-steam {
   mask-image: url(https://banner2.cleanpng.com/20190303/ppj/kisspng-steam-link-portable-network-graphics-video-games-c-5c7bd17c80cf98.5627578515516184285276.jpg);
@@ -12,6 +13,18 @@
   }
 }
 
+.elipse {
+  width: 50rem;
+  height: 50rem;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.logo {
+  width: 390px;
+}
+
 .buttons {
     display: flex;
 }
@@ -20,9 +33,9 @@
   box-sizing: border-box;
   appearance: none;
   background-color: transparent;
-  border: 2px solid white;
+  border: 2px solid $main-color;
   border-radius: 0.6em;
-  color: white;
+  color: $main-color;
   cursor: pointer;
   display: flex;
   align-self: center;
@@ -44,11 +57,10 @@
 }
 
 .custom {
-  border-color: blue;
-  box-shadow: 0 0 10px 0 blue inset, 0 0 10px 4px blue;
+  border-color: $main-color;
   transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
   
   &:hover {
-      box-shadow: 0 0 10px 3px blue inset, 0 0 10px 3px blue;
+    box-shadow: 0 0 3px 1px $main-color inset;
   }
 }
