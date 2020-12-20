@@ -7,6 +7,13 @@ html(lang='en')
     meta(name="description", content=Hi, i zevladnit, this is my website)
     link(href='./app.css' rel='stylesheet')
     link(href='./icon.svg' rel='icon' type='image/svg+xml')
+    // Global site tag (gtag.js) - Google Analytics
+    script(async='' src='https://www.googletagmanager.com/gtag/js?id=G-5HT1K6B14B')
+    script.
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5HT1K6B14B');
   body
     div.main
       include ../img/logo.svg
