@@ -1,2 +1,2 @@
-let add = (a,b) => a+b
-console.log(add(2,3)) 
+console.log('%cHi you need my code?\nSee github repository this site\nhttps://github.com/zevladnit/WebSite','color:#fc0fc0; font-size: 20px;');
+console.log('%c ', 'font-size: 1px;  padding: 200px; background:url(https://zevladnit.site/WoW.png) center / contain no-repeat;');
