@@ -29,5 +29,8 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --open"
+  },
+  "dependencies": {
+    "firebase": "^8.2.7",
   }
 }
