@@ -42,7 +42,19 @@ body {
         }
     }
 }
+/* loader start */
+.loader {
+    transform-origin: 50% 50%;
+    position: absolute;
+    animation: spin 12s linear infinite;
+}
 
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* loader end */
+  
 @keyframes bubble-size {
     0%, 75% {
         width:var(--size, 4rem);
