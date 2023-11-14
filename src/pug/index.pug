@@ -3,17 +3,6 @@ html(lang='en')
   include ./head
   body
     div.main
-      include ../img/logo.svg
-      div.buttons        
-        a(href='https://github.com/zevladnit' target='blank')
-          button.btn.custom GitHub
-        a(href='https://codestats.net/users/zevladnit#signup-form' target='blank')
-          button.btn.custom CodeStats
-        a(href='https://vk.com/zevladnit' target='blank')
-          button.btn.custom VK
-        a(href='https://shikimori.one/zevladnit' target='blank')
-          button.btn.custom Shikimori
-        a(href='https://steamcommunity.com/id/zevladnit/' target='blank')
-          button.btn.custom Steam
+      include ./main_page.pug
     include ./footer
     script(src='./app.js')

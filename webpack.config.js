@@ -14,13 +14,13 @@ module.exports = {
     },
     output: {
         path: PATHS.dist,
-        filename: "[name].js"
+        filename: "[name].js",
     },
     module: {
         rules:[
         {
             test: /\.pug$/,
-            use: ['pug-loader']
+            use: ['@webdiscus/pug-loader']
         },
         {
             test:/\.js$/,
@@ -57,9 +57,9 @@ module.exports = {
         }]
     },
     devServer:{
-        overlay: true,
+        //overlay: true,
         port:7123,
-        contentBase: PATHS.dist
+        static: "./",
     },
     plugins: [
         new MiniCssExtractPlugin({
@@ -75,8 +75,10 @@ module.exports = {
             filename: './index.html',
             inject: false
         }),
-        new CopyWebpackPlugin([
-            { from: 'src/img' }
-        ])
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'src/img' },
+            ]
+        }),
     ]
 };
