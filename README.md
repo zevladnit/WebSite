@@ -1,2 +1,2 @@
 # WebSite
-My web site https://zevladnit.ru/
+My web site https://zevladnit.dev/
